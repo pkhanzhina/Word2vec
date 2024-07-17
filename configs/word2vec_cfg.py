@@ -1,20 +1,19 @@
 from easydict import EasyDict
+import os
 
 model_cfg = EasyDict()
-model_cfg.vocab = EasyDict()
+model_cfg.hidden_size = 200
+model_cfg.window_size = 7
 
+model_cfg.vocab = EasyDict()
 model_cfg.vocab.min_count = 5
 model_cfg.vocab.MAX_CODE_LENGTH = 40
 model_cfg.vocab.vocab_max_size = 30000000
 
-model_cfg.hidden_size = 200
-model_cfg.window_size = 7
-
-
+ROOT_DIR = ''
 dataset_cfg = EasyDict()
-dataset_cfg.data_path = r'C:\Users\khanz\PycharmProjects\nlp_khanzhinapv\data\Text8\text8'
-dataset_cfg.qa_path = r'C:\Users\khanz\PycharmProjects\nlp_khanzhinapv\data\word2vec\questions-words.txt'
-
+dataset_cfg.data_path = os.path.join(ROOT_DIR, 'data\Text8\text8')
+dataset_cfg.qa_path = os.path.join(ROOT_DIR, 'data\word2vec\questions-words.txt')
 
 train_cfg = EasyDict()
 train_cfg.init_lr = 0.025
